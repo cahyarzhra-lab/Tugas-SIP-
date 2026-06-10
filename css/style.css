@@ -6,7 +6,7 @@
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background: #f8fafc;
+  background: #e6f2ff;
   color: #0f172a;
 }
 
@@ -31,7 +31,7 @@ body {
   width: 42px;
   height: 42px;
   border-radius: 14px;
-  background: #2563eb;
+  background: #606c38;
   color: white;
   display: flex;
   align-items: center;
@@ -115,7 +115,7 @@ button {
   width: 100%;
   min-height: 40px;
   border-radius: 12px;
-  border: 1px solid #cbd5e1;
+  border: 1px solid #bc6c25;
   background: #ffffff;
   padding: 0 12px;
   font-size: 13px;

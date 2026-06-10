@@ -3,7 +3,7 @@
 // ===============================
 // Basemap adalah peta dasar. Pada tutorial ini kita hanya memakai satu basemap Light.
 // Dengan satu basemap, tampilan panel lebih sederhana dan tidak membutuhkan basemap switcher.
-const BASEMAP = "https://basemaps.cartocdn.com/gl/positron-gl-style/style.json";
+const BASEMAP = "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json";
 
 // ===============================
 // 2. Inisialisasi peta MapLibre
@@ -94,9 +94,11 @@ function addPendudukLayer() {
     type: "line",
     source: SOURCE_ID,
     paint: {
-      "line-color": "#0f172a",
-      "line-width": 0.7,
-      "line-opacity": 0.65
+    paint: {
+  "line-color": "#0f172a",
+  "line-width": 0.9,
+  "line-opacity": 0.80
+}
     }
   });
 }
@@ -187,14 +189,14 @@ function setupPopup() {
   map.on("click", FILL_LAYER_ID, (event) => {
     const props = event.features[0].properties;
 
-    const popupHTML = `
-      <div>
-        <div class="popup-title">${props.NAMOBJ || "Tanpa Nama"}</div>
-        <div class="popup-row"><b>Kecamatan:</b> ${props.WADMKC || "-"}</div>
-        <div class="popup-row"><b>Jumlah Penduduk:</b> ${Number(props.jumlah_pdd || 0).toLocaleString("id-ID")} jiwa</div>
-        <div class="popup-row"><b>Luas:</b> ${props.luas ? Number(props.luas).toFixed(2) : "-"} km²</div>
-      </div>
-    `;
+const popupHTML = `
+  <div>
+    <div class="popup-title">${props.NAMOBJ || "Tanpa Nama"}</div>
+    <div class="popup-row"><b>Kecamatan:</b> ${props.WADMKC || "-"}</div>
+    <div class="popup-row"><b>Jumlah Penduduk:</b> ${Number(props.jumlah_pdd || 0).toLocaleString("id-ID")} jiwa</div>
+    <div class="popup-row"><b>Luas:</b> ${props.luas ? Number(props.luas).toFixed(2) : "-"} km²</div>
+  </div>
+`;
 
     new maplibregl.Popup({
       closeButton: true,
